@@ -1,0 +1,5 @@
+---
+nvm_user: "{{ user }}"
+nvm_user_home: "{{ host_user_homes }}/{{ nvm_user }}"
+nvm_dir: "{{ nvm_user_home }}/.nvm"
+nvm_repo: "https://github.com/creationix/nvm.git"

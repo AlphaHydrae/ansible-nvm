@@ -1,0 +1,10 @@
+- name: Clone nvm
+  git: repo={{ nvm_repo }} dest={{ nvm_dir }} update=no
+  become: true
+  become_user: "{{ nvm_user }}"
+- name: Checkout latest nvm version
+  shell: git checkout `git describe --abbrev=0 --tags` chdir={{ nvm_dir }}
+  become: true
+  become_user: "{{ nvm_user }}"
+  register: result
+  changed_when: result.rc != 0
