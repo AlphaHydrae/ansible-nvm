@@ -1,8 +1,11 @@
-- name: Clone nvm
+---
+
+- name: Clone NVM
   git: repo={{ nvm_repo }} dest={{ nvm_dir }} update=no
   become: true
   become_user: "{{ nvm_user }}"
-- name: Checkout latest nvm version
+
+- name: Checkout the latest NVM version
   shell: git checkout `git describe --abbrev=0 --tags` chdir={{ nvm_dir }}
   become: true
   become_user: "{{ nvm_user }}"
